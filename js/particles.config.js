@@ -1,1 +1,1 @@
-particlesJS.load('particles-js', 'static/particlesjs-config.json')
+particlesJS.load("particles-js", "static/particlesjs-config.json");
