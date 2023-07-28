@@ -114,7 +114,7 @@ body {
 
   #header {
     position: fixed;
-    z-index: 3;
+    z-index: 4;
     left: calc(var(--pad) * 2);
     top: calc(var(--pad) * 2);
 
@@ -194,7 +194,7 @@ body {
       position: fixed;
       right: calc(var(--pad) * 2);
       bottom: calc(var(--pad) * 2);
-      z-index: 3;
+      z-index: 4;
 
       a {
         display: block;
@@ -211,6 +211,8 @@ body {
     #projects {
       padding: calc(var(--pad) * 2 + 80px) calc(var(--pad) * 2);
       text-align: right;
+      z-index: 3;
+      position: relative;
 
       .project-heading {
         font-size: 14px;
@@ -229,30 +231,31 @@ body {
 
         .project-item {
           text-decoration: none;
+          color: #fff;
 
           &:hover {
             color: #666;
+          }
+
+          @media screen and (min-width: 1280px) {
+            color: #ccc;
           }
 
           .project-title {
             font-size: 30px;
             font-weight: 200;
             text-align: right;
-            color: #fff;
 
             @media screen and (min-width: 1280px) {
               font-size: 60px;
-              color: #ccc;
             }
           }
 
           .project-info {
             margin-top: 5px;
-            color: #fff;
 
             @media screen and (min-width: 1280px) {
               margin-top: 0;
-              color: #ccc;
             }
           }
 
@@ -265,70 +268,6 @@ body {
           }
         }
       }
-    }
-  }
-
-  #introduction {
-    z-index: 4;
-    width: 1200px;
-    height: auto;
-    // position: absolute;
-    // transform: translate(-50%, -50%);
-    top: 45%;
-    left: 50%;
-
-    .info {
-      color: #fff;
-      width: 100%;
-      position: relative;
-
-      span {
-        text-transform: uppercase;
-        color: $accent-color;
-      }
-
-      h1 {
-        margin: 5px auto 20px;
-        font-size: 60px;
-      }
-
-      .banner {
-        position: absolute;
-        right: 0;
-        top: -45%;
-
-        @media screen and (max-width: 1199px) {
-          position: initial;
-        }
-
-        * {
-          @media screen and (max-width: 1199px) {
-            margin: auto;
-          }
-        }
-      }
-
-      i {
-        color: $light-color;
-        font-size: 1.5em;
-
-        &:hover {
-          color: $accent-color !important;
-        }
-      }
-
-      .social-profiles {
-        margin-top: 30px;
-
-        a {
-          margin-right: 10px;
-          text-decoration: none;
-        }
-      }
-    }
-    @media screen and (max-width: 1199px) {
-      text-align: center;
-      width: 100%;
     }
   }
 }
