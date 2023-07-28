@@ -47,6 +47,9 @@ body.is-loading #astronaut {
 body.is-loading #mask {
   background: #000;
   z-index: 5;
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
 @media screen and (min-width: 1280px) {
   body {
@@ -68,17 +71,15 @@ body #astronaut {
   }
 }
 body #mask {
-  position: fixed;
-  z-index: 4;
+  position: relative;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
   overflow: hidden;
 }
 body #mask .mask-top,
 body #mask .mask-bottom {
-  position: absolute;
+  position: fixed;
+  z-index: 4;
   height: var(--pad);
   background-color: rgba(0, 0, 0, 0.5);
   width: 100%;
@@ -143,7 +144,7 @@ body #header ul li a:hover {
   color: #666;
 }
 body #main {
-  width: 100%;
+  position: relative;
   height: 100%;
   position: relative;
 }
@@ -166,9 +167,9 @@ body #main #home p {
 }
 body #main #contact {
   position: fixed;
+  z-index: 2;
   right: calc(var(--pad) * 2);
   bottom: calc(var(--pad) * 2);
-  z-index: 4;
 }
 body #main #contact a {
   display: block;
@@ -182,8 +183,6 @@ body #main #contact a:hover {
 body #main #projects {
   padding: calc(var(--pad) * 2 + 80px) calc(var(--pad) * 2);
   text-align: right;
-  z-index: 3;
-  position: relative;
 }
 body #main #projects .project-heading {
   font-size: 14px;
@@ -201,6 +200,8 @@ body #main #projects .project-list {
 body #main #projects .project-list .project-item {
   text-decoration: none;
   color: #fff;
+  z-index: 3;
+  position: relative;
 }
 body #main #projects .project-list .project-item:hover {
   color: #666;
