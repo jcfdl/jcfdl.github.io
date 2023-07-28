@@ -40,7 +40,7 @@ body::-webkit-scrollbar {
 }
 body.is-loading #astronaut {
   left: 50%;
-  bottom: 40%;
+  bottom: 30%;
   transform: translate(-50%, -50%);
   z-index: 5;
 }
@@ -69,7 +69,7 @@ body #astronaut {
 }
 body #mask {
   position: fixed;
-  z-index: 3;
+  z-index: 4;
   left: 0;
   top: 0;
   width: 100%;
