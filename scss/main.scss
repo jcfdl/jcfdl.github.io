@@ -18,7 +18,12 @@
 
 $light-color: #dadada;
 $accent-color: #ffbc00;
-$pad: 40px;
+
+html {
+  &.is-projects {
+    scrollbar-width: none;
+  }
+}
 
 body {
   font-family: "Neue Montreal";
@@ -31,29 +36,87 @@ body {
   overflow: hidden;
   height: 100vh;
   width: 100vw;
+  --pad: 20px;
 
-  #particles-js {
-    top: $pad;
-    left: $pad;
-    right: $pad;
-    bottom: $pad;
-    position: fixed;
-    z-index: 1;
-    border: 0.1px solid #ccc;
+  &.is-projects {
+    overflow-y: scroll;
+    scrollbar-width: none;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &.is-loading {
+    #astronaut {
+      left: 50%;
+      bottom: 40%;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+    }
+    #mask {
+      background: #000;
+      z-index: 5;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    --pad: 40px;
   }
 
   #astronaut {
     position: fixed;
     z-index: 2;
-    left: $pad;
-    bottom: $pad;
+    left: var(--pad);
+    bottom: var(--pad);
+    width: 100px;
+    height: 125px;
+
+    @media screen and (min-width: 1280px) {
+      width: 200px;
+      height: 250px;
+    }
+  }
+
+  #mask {
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    .mask-top,
+    .mask-bottom {
+      position: absolute;
+      height: var(--pad);
+      background-color: rgba(0, 0, 0, 0.5);
+      width: 100%;
+      left: 0;
+    }
+    .mask-top {
+      top: 0;
+    }
+    .mask-bottom {
+      bottom: 0;
+    }
+  }
+
+  #particles-js {
+    top: var(--pad);
+    left: var(--pad);
+    right: var(--pad);
+    bottom: var(--pad);
+    position: fixed;
+    z-index: 1;
+    border: 0.1px solid #ccc;
   }
 
   #header {
     position: fixed;
     z-index: 3;
-    left: $pad * 2;
-    top: $pad * 2;
+    left: calc(var(--pad) * 2);
+    top: calc(var(--pad) * 2);
 
     h1 {
       margin: 0;
@@ -118,8 +181,8 @@ body {
     #home {
       position: fixed;
       z-index: 2;
-      right: $pad * 2;
-      bottom: $pad * 2;
+      right: calc(var(--pad) * 2);
+      bottom: calc(var(--pad) * 2);
 
       p {
         margin: 0;
@@ -129,20 +192,24 @@ body {
 
     #contact {
       position: fixed;
-      right: $pad * 2;
-      bottom: $pad * 2;
-      z-index: 2;
+      right: calc(var(--pad) * 2);
+      bottom: calc(var(--pad) * 2);
+      z-index: 3;
 
       a {
         display: block;
         color: #ccc;
         margin-top: 15px;
         text-decoration: none;
+
+        &:hover {
+          color: #666;
+        }
       }
     }
 
     #projects {
-      padding: calc($pad * 2 + 80px) calc($pad * 2);
+      padding: calc(var(--pad) * 2 + 80px) calc(var(--pad) * 2);
       text-align: right;
 
       .project-heading {
@@ -162,7 +229,6 @@ body {
 
         .project-item {
           text-decoration: none;
-          color: #ccc;
 
           &:hover {
             color: #666;
@@ -172,17 +238,21 @@ body {
             font-size: 30px;
             font-weight: 200;
             text-align: right;
+            color: #fff;
 
             @media screen and (min-width: 1280px) {
               font-size: 60px;
+              color: #ccc;
             }
           }
 
           .project-info {
             margin-top: 5px;
+            color: #fff;
 
             @media screen and (min-width: 1280px) {
               margin-top: 0;
+              color: #ccc;
             }
           }
 
@@ -261,14 +331,4 @@ body {
       width: 100%;
     }
   }
-}
-
-div,
-section,
-article {
-  z-index: 2;
-}
-
-h1 {
-  color: #fff;
 }

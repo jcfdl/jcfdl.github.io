@@ -14,6 +14,10 @@
   font-weight: 600;
   src: url("../fonts/PPNeueMontreal-SemiBold.woff2") format("woff2");
 }
+html.is-projects {
+  scrollbar-width: none;
+}
+
 body {
   font-family: "Neue Montreal";
   font-weight: 600;
@@ -25,27 +29,81 @@ body {
   overflow: hidden;
   height: 100vh;
   width: 100vw;
+  --pad: 20px;
 }
-body #particles-js {
-  top: 40px;
-  left: 40px;
-  right: 40px;
-  bottom: 40px;
-  position: fixed;
-  z-index: 1;
-  border: 0.1px solid #ccc;
+body.is-projects {
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+body.is-loading #astronaut {
+  left: 50%;
+  bottom: 40%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+body.is-loading #mask {
+  background: #000;
+  z-index: 5;
+}
+@media screen and (min-width: 1280px) {
+  body {
+    --pad: 40px;
+  }
 }
 body #astronaut {
   position: fixed;
   z-index: 2;
-  left: 40px;
-  bottom: 40px;
+  left: var(--pad);
+  bottom: var(--pad);
+  width: 100px;
+  height: 125px;
+}
+@media screen and (min-width: 1280px) {
+  body #astronaut {
+    width: 200px;
+    height: 250px;
+  }
+}
+body #mask {
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+body #mask .mask-top,
+body #mask .mask-bottom {
+  position: absolute;
+  height: var(--pad);
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  left: 0;
+}
+body #mask .mask-top {
+  top: 0;
+}
+body #mask .mask-bottom {
+  bottom: 0;
+}
+body #particles-js {
+  top: var(--pad);
+  left: var(--pad);
+  right: var(--pad);
+  bottom: var(--pad);
+  position: fixed;
+  z-index: 1;
+  border: 0.1px solid #ccc;
 }
 body #header {
   position: fixed;
   z-index: 3;
-  left: 80px;
-  top: 80px;
+  left: calc(var(--pad) * 2);
+  top: calc(var(--pad) * 2);
 }
 body #header h1 {
   margin: 0;
@@ -99,8 +157,8 @@ body #main .active {
 body #main #home {
   position: fixed;
   z-index: 2;
-  right: 80px;
-  bottom: 80px;
+  right: calc(var(--pad) * 2);
+  bottom: calc(var(--pad) * 2);
 }
 body #main #home p {
   margin: 0;
@@ -108,9 +166,9 @@ body #main #home p {
 }
 body #main #contact {
   position: fixed;
-  right: 80px;
-  bottom: 80px;
-  z-index: 2;
+  right: calc(var(--pad) * 2);
+  bottom: calc(var(--pad) * 2);
+  z-index: 3;
 }
 body #main #contact a {
   display: block;
@@ -118,8 +176,11 @@ body #main #contact a {
   margin-top: 15px;
   text-decoration: none;
 }
+body #main #contact a:hover {
+  color: #666;
+}
 body #main #projects {
-  padding: 160px 80px;
+  padding: calc(var(--pad) * 2 + 80px) calc(var(--pad) * 2);
   text-align: right;
 }
 body #main #projects .project-heading {
@@ -137,7 +198,6 @@ body #main #projects .project-list {
 }
 body #main #projects .project-list .project-item {
   text-decoration: none;
-  color: #ccc;
 }
 body #main #projects .project-list .project-item:hover {
   color: #666;
@@ -146,18 +206,22 @@ body #main #projects .project-list .project-item .project-title {
   font-size: 30px;
   font-weight: 200;
   text-align: right;
+  color: #fff;
 }
 @media screen and (min-width: 1280px) {
   body #main #projects .project-list .project-item .project-title {
     font-size: 60px;
+    color: #ccc;
   }
 }
 body #main #projects .project-list .project-item .project-info {
   margin-top: 5px;
+  color: #fff;
 }
 @media screen and (min-width: 1280px) {
   body #main #projects .project-list .project-item .project-info {
     margin-top: 0;
+    color: #ccc;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -224,14 +288,4 @@ body #introduction .info .social-profiles a {
     text-align: center;
     width: 100%;
   }
-}
-
-div,
-section,
-article {
-  z-index: 2;
-}
-
-h1 {
-  color: #fff;
 }/*# sourceMappingURL=main.css.map */

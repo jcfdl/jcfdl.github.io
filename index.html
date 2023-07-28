@@ -4,17 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>John Carlo F. De Leon</title>
+    <meta name="description" content="Full Stack Web Developer" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="John Carlo De Leon" />
+    <meta property="og:title" content="John Carlo De Leon" />
+    <meta property="og:description" content="Full Stack Web Developer" />
+    <meta property="og:url" content="https://jcfdl.github.io/" />
     <link rel="icon" href="images/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="images/favicon.png" type="image/png" />
     <link href="css/main.css" rel="stylesheet" type="text/css" />
   </head>
-  <body>
+  <body class="is-loading">
     <div id="particles-js"></div>
+    <div id="mask">
+      <div class="mask-top"></div>
+      <div class="mask-bottom"></div>
+    </div>
     <div id="astronaut">
       <lottie-player
         src="static/lottie-astronaut.json"
         background="transparent"
         speed="1"
-        style="width: 200px; height: 250px"
         loop
         autoplay
       ></lottie-player>
@@ -64,13 +75,20 @@
         >
           LinkedIn ↗
         </a>
-        <a href="files/JohnCarloDeLeon_Resume.pdf" target="" _blank>
-          Resume ↗
-        </a>
+        <a href="files/JohnCarloDeLeon_Resume.pdf" download> Resume ↗ </a>
       </div>
       <div id="projects">
         <h3 class="project-heading">■ Projects (Design & Develop)</h3>
         <div class="project-list">
+          <a
+            class="project-item"
+            href="https://apps.shopify.com/simplyrfid-wave-rfid-inventory"
+            target="_blank"
+            rel="noreferrer noopener nofollow"
+          >
+            <div class="project-title">Wave | Shopify</div>
+            <div class="project-info">2023 / Company / Special</div>
+          </a>
           <a
             class="project-item"
             href="https://jcfdl.github.io/pokemon-listing/"
@@ -88,6 +106,24 @@
           >
             <div class="project-title">Probe</div>
             <div class="project-info">2021 / Company / Special</div>
+          </a>
+          <a
+            class="project-item"
+            href="https://jcfdl.github.io/react-task-tracker/"
+            target="_blank"
+            rel="noreferrer noopener nofollow"
+          >
+            <div class="project-title">Task Tracker</div>
+            <div class="project-info">2020 / Personal / Portfolio</div>
+          </a>
+          <a
+            class="project-item"
+            href="https://jcfdl.github.io/react-tic-tac-toe/"
+            target="_blank"
+            rel="noreferrer noopener nofollow"
+          >
+            <div class="project-title">TicTacToe</div>
+            <div class="project-info">2020 / Personal / Portfolio</div>
           </a>
           <a
             class="project-item"
@@ -109,6 +145,24 @@
           </a>
           <a
             class="project-item"
+            href="https://www.onlinecasino-thai.com/"
+            target="_blank"
+            rel="noreferrer noopener nofollow"
+          >
+            <div class="project-title">Online Casino Thai</div>
+            <div class="project-info">2018 / Company / Special</div>
+          </a>
+          <a
+            class="project-item"
+            href="https://casino-tructuyen.com/"
+            target="_blank"
+            rel="noreferrer noopener nofollow"
+          >
+            <div class="project-title">Casino Truc Tuyen</div>
+            <div class="project-info">2018 / Company / Special</div>
+          </a>
+          <a
+            class="project-item"
             href="https://mad.apacaff.com/"
             target="_blank"
             rel="noreferrer noopener nofollow"
@@ -123,7 +177,7 @@
             rel="noreferrer noopener nofollow"
           >
             <div class="project-title">ThaiCasino Online</div>
-            <div class="project-info">2017 / Company / Special</div>
+            <div class="project-info">2016 / Company / Special</div>
           </a>
         </div>
         <h3 class="project-heading mt-5">■ Projects (Develop)</h3>
