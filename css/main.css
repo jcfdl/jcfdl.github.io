@@ -1,23 +1,243 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,800;1,100;1,200;1,300;1,400;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,800;1,100;1,200;1,300;1,400;1,700;1,800&display=swap");
+@font-face {
+  font-family: "Neue Montreal";
+  font-weight: 200;
+  src: url("../fonts/PPNeueMontreal-Thin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Neue Montreal";
+  font-weight: 400;
+  src: url("../fonts/PPNeueMontreal-Book.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Neue Montreal";
+  font-weight: 600;
+  src: url("../fonts/PPNeueMontreal-SemiBold.woff2") format("woff2");
+}
+html.is-projects {
+  scrollbar-width: none;
+}
+
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Neue Montreal";
+  font-weight: 600;
   display: block;
   margin: 0 auto;
-  padding: 0;
-  overflow: hidden;
   background: #000;
-  color: #fff;
-  font-size: 20px;
+  color: #ccc;
+  font-size: 14px;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  --pad: 20px;
 }
-body .main {
+body.is-projects {
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+body.is-loading #astronaut {
+  left: 50%;
+  bottom: 40%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+body.is-loading #mask {
+  background: #000;
+  z-index: 5;
+}
+@media screen and (min-width: 1280px) {
+  body {
+    --pad: 40px;
+  }
+}
+body #astronaut {
+  position: fixed;
+  z-index: 2;
+  left: var(--pad);
+  bottom: var(--pad);
+  width: 100px;
+  height: 125px;
+}
+@media screen and (min-width: 1280px) {
+  body #astronaut {
+    width: 200px;
+    height: 250px;
+  }
+}
+body #mask {
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+body #mask .mask-top,
+body #mask .mask-bottom {
+  position: absolute;
+  height: var(--pad);
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  left: 0;
+}
+body #mask .mask-top {
+  top: 0;
+}
+body #mask .mask-bottom {
+  bottom: 0;
+}
+body #particles-js {
+  top: var(--pad);
+  left: var(--pad);
+  right: var(--pad);
+  bottom: var(--pad);
+  position: fixed;
+  z-index: 1;
+  border: 0.1px solid #ccc;
+}
+body #header {
+  position: fixed;
+  z-index: 3;
+  left: calc(var(--pad) * 2);
+  top: calc(var(--pad) * 2);
+}
+body #header h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 200;
+  color: #ccc;
+}
+body #header h2 {
+  margin: 5px 0 0 0;
+  font-size: 14px;
+  font-weight: 200;
+  color: #ccc;
+}
+body #header ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 30px 0 0 0;
+}
+body #header ul li {
+  margin-bottom: 15px;
+  color: #ccc;
+}
+body #header ul li.selected a {
+  display: none;
+}
+body #header ul li.selected ._dot {
+  display: block;
+}
+body #header ul li ._dot {
+  display: none;
+}
+body #header ul li a {
+  color: #ccc;
+  text-decoration: none;
+}
+body #header ul li a:hover {
+  color: #666;
+}
+body #main {
+  width: 100%;
+  height: 100%;
   position: relative;
+}
+body #main > div {
+  transition: opacity 1.2s;
+  opacity: 0;
+}
+body #main .active {
+  opacity: 1;
+}
+body #main #home {
+  position: fixed;
+  z-index: 2;
+  right: calc(var(--pad) * 2);
+  bottom: calc(var(--pad) * 2);
+}
+body #main #home p {
+  margin: 0;
+  width: 120px;
+}
+body #main #contact {
+  position: fixed;
+  right: calc(var(--pad) * 2);
+  bottom: calc(var(--pad) * 2);
+  z-index: 3;
+}
+body #main #contact a {
+  display: block;
+  color: #ccc;
+  margin-top: 15px;
+  text-decoration: none;
+}
+body #main #contact a:hover {
+  color: #666;
+}
+body #main #projects {
+  padding: calc(var(--pad) * 2 + 80px) calc(var(--pad) * 2);
+  text-align: right;
+}
+body #main #projects .project-heading {
+  font-size: 14px;
+  font-weight: 400;
+}
+body #main #projects .project-heading.mt-5 {
+  margin-top: 100px;
+}
+body #main #projects .project-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  row-gap: 15px;
+}
+body #main #projects .project-list .project-item {
+  text-decoration: none;
+}
+body #main #projects .project-list .project-item:hover {
+  color: #666;
+}
+body #main #projects .project-list .project-item .project-title {
+  font-size: 30px;
+  font-weight: 200;
+  text-align: right;
+  color: #fff;
+}
+@media screen and (min-width: 1280px) {
+  body #main #projects .project-list .project-item .project-title {
+    font-size: 60px;
+    color: #ccc;
+  }
+}
+body #main #projects .project-list .project-item .project-info {
+  margin-top: 5px;
+  color: #fff;
+}
+@media screen and (min-width: 1280px) {
+  body #main #projects .project-list .project-item .project-info {
+    margin-top: 0;
+    color: #ccc;
+  }
+}
+@media screen and (min-width: 1280px) {
+  body #main #projects .project-list .project-item {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    align-items: baseline;
+    -moz-column-gap: 15px;
+         column-gap: 15px;
+  }
 }
 body #introduction {
   z-index: 4;
   width: 1200px;
   height: auto;
-  position: absolute;
-  transform: translate(-50%, -50%);
   top: 45%;
   left: 50%;
 }
@@ -28,7 +248,7 @@ body #introduction .info {
 }
 body #introduction .info span {
   text-transform: uppercase;
-  color: #FFBC00;
+  color: #ffbc00;
 }
 body #introduction .info h1 {
   margin: 5px auto 20px;
@@ -54,7 +274,7 @@ body #introduction .info i {
   font-size: 1.5em;
 }
 body #introduction .info i:hover {
-  color: #FFBC00 !important;
+  color: #ffbc00 !important;
 }
 body #introduction .info .social-profiles {
   margin-top: 30px;
@@ -68,23 +288,4 @@ body #introduction .info .social-profiles a {
     text-align: center;
     width: 100%;
   }
-}
-
-#particles-js {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 1;
-}
-
-div, section, article {
-  z-index: 2;
-}
-
-h1 {
-  color: #fff;
-}
-
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */
